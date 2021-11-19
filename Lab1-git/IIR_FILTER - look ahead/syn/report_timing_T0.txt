@@ -1,0 +1,85 @@
+Information: Updating design information... (UID-85)
+Warning: There are infeasible paths detected in your design that were ignored during optimization. Please run 'report_timing -attributes' and/or 'create_qor_snapshot/query_qor_snapshot -infeasible_paths' to identify these paths.  (OPT-1721)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : IIR_FILTER
+Version: O-2018.06-SP4
+Date   : Sat Oct 23 14:09:44 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: REGa1/Q_reg[4]
+              (rising edge-triggered flip-flop clocked by MY_CLK)
+  Endpoint: REGRETIMING_4/Q_reg[11]
+            (rising edge-triggered flip-flop clocked by MY_CLK)
+  Path Group: MY_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  IIR_FILTER         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MY_CLK (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  REGa1/Q_reg[4]/CK (DFFR_X1)                             0.00       0.00 r
+  REGa1/Q_reg[4]/QN (DFFR_X1)                             0.07       0.07 f
+  REGa1/U6/ZN (INV_X2)                                    0.05       0.12 r
+  REGa1/Q[4] (regn_N13_2)                                 0.00       0.12 r
+  mult_40/a[4] (IIR_FILTER_DW_mult_tc_12)                 0.00       0.12 r
+  mult_40/U409/ZN (AND2_X1)                               0.05       0.17 r
+  mult_40/U473/Z (XOR2_X1)                                0.07       0.24 r
+  mult_40/U253/S (FA_X1)                                  0.12       0.36 f
+  mult_40/U252/S (FA_X1)                                  0.12       0.48 f
+  mult_40/U636/ZN (NOR2_X1)                               0.04       0.52 r
+  mult_40/U688/ZN (OAI21_X1)                              0.03       0.55 f
+  mult_40/U687/ZN (AOI21_X1)                              0.06       0.61 r
+  mult_40/U690/ZN (OAI21_X1)                              0.04       0.65 f
+  mult_40/U537/ZN (AOI21_X1)                              0.05       0.69 r
+  mult_40/U691/ZN (INV_X1)                                0.04       0.73 f
+  mult_40/U711/ZN (AOI21_X1)                              0.05       0.78 r
+  mult_40/U535/ZN (XNOR2_X1)                              0.06       0.85 r
+  mult_40/product[15] (IIR_FILTER_DW_mult_tc_12)          0.00       0.85 r
+  mult_41/a[15] (IIR_FILTER_DW_mult_tc_16)                0.00       0.85 r
+  mult_41/U1171/Z (BUF_X1)                                0.04       0.89 r
+  mult_41/U1942/ZN (XNOR2_X1)                             0.06       0.95 r
+  mult_41/U1147/ZN (OAI22_X1)                             0.04       0.99 f
+  mult_41/U410/CO (FA_X1)                                 0.11       1.10 f
+  mult_41/U401/S (FA_X1)                                  0.11       1.21 f
+  mult_41/U399/S (FA_X1)                                  0.14       1.35 r
+  mult_41/U398/S (FA_X1)                                  0.12       1.47 f
+  mult_41/U1314/ZN (NOR2_X1)                              0.05       1.52 r
+  mult_41/U1951/ZN (OAI21_X1)                             0.03       1.55 f
+  mult_41/U1330/ZN (INV_X1)                               0.03       1.58 r
+  mult_41/U1192/ZN (AND2_X1)                              0.04       1.62 r
+  mult_41/U1788/ZN (OAI21_X1)                             0.05       1.67 f
+  mult_41/U2024/ZN (AOI21_X1)                             0.06       1.73 r
+  mult_41/U1285/ZN (XNOR2_X1)                             0.06       1.79 r
+  mult_41/product[37] (IIR_FILTER_DW_mult_tc_16)          0.00       1.79 r
+  REGRETIMING_4/R[11] (regn_N15_0)                        0.00       1.79 r
+  REGRETIMING_4/U44/ZN (NAND2_X1)                         0.03       1.82 f
+  REGRETIMING_4/U25/ZN (NAND2_X1)                         0.03       1.84 r
+  REGRETIMING_4/Q_reg[11]/D (DFFR_X2)                     0.01       1.85 r
+  data arrival time                                                  1.85
+
+  clock MY_CLK (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                      -0.07      -0.07
+  REGRETIMING_4/Q_reg[11]/CK (DFFR_X2)                    0.00      -0.07 r
+  library setup time                                     -0.03      -0.10
+  data required time                                                -0.10
+  --------------------------------------------------------------------------
+  data required time                                                -0.10
+  data arrival time                                                 -1.85
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.95
+
+
+1
