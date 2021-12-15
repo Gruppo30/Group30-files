@@ -1,3 +1,7 @@
+-- MULTIPLIER TESTBENCH
+-- this file contains the testbench implemented to verify the FPmul multiplier behaviour;
+-- it generates the system clock and reads from file the input values to be fed to the multiplier.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
@@ -12,6 +16,7 @@ END multiplier_tb ;
 
 architecture tb_arch of multiplier_tb is
     
+	-- DUT declaration as internal component
     COMPONENT FPmul IS
        PORT( 
           FP_A : IN     std_logic_vector (31 DOWNTO 0);
@@ -19,14 +24,15 @@ architecture tb_arch of multiplier_tb is
           clk  : IN     std_logic;
           FP_Z : OUT    std_logic_vector (31 DOWNTO 0)
        );
-    -- Declarations
     END COMPONENT FPmul ;
     
+	-- internal signals declaration
     signal clk_tb : std_logic;
     signal a,b,z : std_logic_vector (31 downto 0);
     
-    begin
-        
+ begin
+    
+	-- this process allows to read the multiplier inputs from file
    process (CLK_tb)
       file fp : text open read_mode is "./fp_samples.hex";
       variable ptr : line;
@@ -38,10 +44,11 @@ architecture tb_arch of multiplier_tb is
              hread(ptr, val);        
          end if;
          a <= val;
-         b<=val;
+         b <= val;
       end if;
    end process;
-        
+
+	-- process for the definition of the clock        
     process 
     begin 
        clk_tb <='0';
@@ -49,7 +56,8 @@ architecture tb_arch of multiplier_tb is
        clk_tb <='1';
        wait for 2 us;
     end process;
-            
-            DUT: FPmul PORT MAP (a,b,clk_tb,z);
+    
+		-- DUT port map
+    DUT: FPmul PORT MAP (a,b,clk_tb,z);
         
     end tb_arch;

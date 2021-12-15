@@ -2,6 +2,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 
+-- This file has been automatically generated though the C code which can be found 
+-- in the appendix of the lab reports. We are not going to comment it since it is 
+-- just a connection and a series of instances of HA and FA components 
+-- useful to implement the dadda tree
+
 entity dadda_tree is
 	port (y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17 : in std_logic_vector (63 downto 0);
 			product : OUT std_logic_vector(63 downto 0)
