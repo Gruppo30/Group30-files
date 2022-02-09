@@ -1,0 +1,168 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'RISCV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : RISCV
+Version: O-2018.06-SP4
+Date   : Fri Feb  4 19:55:50 2022
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: stage1/instruction_out_reg[20]
+              (rising edge-triggered flip-flop clocked by MY_CLK)
+  Endpoint: stage1/PCreg/Q_reg[20]
+            (rising edge-triggered flip-flop clocked by MY_CLK)
+  Path Group: MY_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MY_CLK (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  stage1/instruction_out_reg[20]/CK (DFFR_X1)             0.00 #     0.00 r
+  stage1/instruction_out_reg[20]/Q (DFFR_X1)              0.15       0.15 r
+  stage1/instruction_out[20] (RISCV_stage1)               0.00       0.15 r
+  haz_unit/current_instr[20] (hazard_unit)                0.00       0.15 r
+  haz_unit/U5/ZN (XNOR2_X1)                               0.06       0.21 f
+  haz_unit/U18/ZN (NAND3_X1)                              0.03       0.24 r
+  haz_unit/U12/ZN (OAI33_X1)                              0.04       0.28 f
+  haz_unit/U2/ZN (OAI22_X1)                               0.14       0.42 r
+  haz_unit/hazard_control (hazard_unit)                   0.00       0.42 r
+  forwarding_unit/hazard_control (fwd_unit)               0.00       0.42 r
+  forwarding_unit/U10/ZN (NAND2_X1)                       0.04       0.45 f
+  forwarding_unit/U8/ZN (NOR4_X1)                         0.12       0.58 r
+  forwarding_unit/fwdB[0] (fwd_unit)                      0.00       0.58 r
+  stage3/sel_fwd_muxB[0] (RISCV_stage3)                   0.00       0.58 r
+  stage3/FWD_MuxB/sel[0] (mux_4to1_0)                     0.00       0.58 r
+  stage3/FWD_MuxB/U24/ZN (INV_X1)                         0.03       0.61 f
+  stage3/FWD_MuxB/U17/ZN (AND2_X1)                        0.05       0.66 f
+  stage3/FWD_MuxB/U10/Z (BUF_X1)                          0.07       0.73 f
+  stage3/FWD_MuxB/U40/ZN (AOI22_X1)                       0.07       0.80 r
+  stage3/FWD_MuxB/U38/ZN (NAND2_X1)                       0.06       0.86 f
+  stage3/FWD_MuxB/dataout[0] (mux_4to1_0)                 0.00       0.86 f
+  stage3/ArithmUnit/in_ALU_B[0] (ALU)                     0.00       0.86 f
+  stage3/ArithmUnit/add_38/B[0] (ALU_DW01_add_1)          0.00       0.86 f
+  stage3/ArithmUnit/add_38/U2/ZN (AND2_X1)                0.06       0.91 f
+  stage3/ArithmUnit/add_38/U1_1/CO (FA_X1)                0.09       1.00 f
+  stage3/ArithmUnit/add_38/U1_2/CO (FA_X1)                0.09       1.09 f
+  stage3/ArithmUnit/add_38/U1_3/CO (FA_X1)                0.09       1.18 f
+  stage3/ArithmUnit/add_38/U1_4/CO (FA_X1)                0.09       1.27 f
+  stage3/ArithmUnit/add_38/U1_5/CO (FA_X1)                0.09       1.36 f
+  stage3/ArithmUnit/add_38/U1_6/CO (FA_X1)                0.09       1.46 f
+  stage3/ArithmUnit/add_38/U1_7/CO (FA_X1)                0.09       1.55 f
+  stage3/ArithmUnit/add_38/U1_8/CO (FA_X1)                0.09       1.64 f
+  stage3/ArithmUnit/add_38/U1_9/CO (FA_X1)                0.09       1.73 f
+  stage3/ArithmUnit/add_38/U1_10/CO (FA_X1)               0.09       1.82 f
+  stage3/ArithmUnit/add_38/U1_11/CO (FA_X1)               0.09       1.91 f
+  stage3/ArithmUnit/add_38/U1_12/CO (FA_X1)               0.09       2.00 f
+  stage3/ArithmUnit/add_38/U1_13/CO (FA_X1)               0.09       2.09 f
+  stage3/ArithmUnit/add_38/U1_14/CO (FA_X1)               0.09       2.18 f
+  stage3/ArithmUnit/add_38/U1_15/CO (FA_X1)               0.09       2.27 f
+  stage3/ArithmUnit/add_38/U1_16/CO (FA_X1)               0.09       2.36 f
+  stage3/ArithmUnit/add_38/U1_17/CO (FA_X1)               0.09       2.45 f
+  stage3/ArithmUnit/add_38/U1_18/CO (FA_X1)               0.09       2.54 f
+  stage3/ArithmUnit/add_38/U1_19/CO (FA_X1)               0.09       2.64 f
+  stage3/ArithmUnit/add_38/U1_20/CO (FA_X1)               0.09       2.73 f
+  stage3/ArithmUnit/add_38/U1_21/CO (FA_X1)               0.09       2.82 f
+  stage3/ArithmUnit/add_38/U1_22/CO (FA_X1)               0.09       2.91 f
+  stage3/ArithmUnit/add_38/U1_23/CO (FA_X1)               0.09       3.00 f
+  stage3/ArithmUnit/add_38/U1_24/CO (FA_X1)               0.09       3.09 f
+  stage3/ArithmUnit/add_38/U1_25/CO (FA_X1)               0.09       3.18 f
+  stage3/ArithmUnit/add_38/U1_26/CO (FA_X1)               0.09       3.27 f
+  stage3/ArithmUnit/add_38/U1_27/CO (FA_X1)               0.09       3.36 f
+  stage3/ArithmUnit/add_38/U1_28/CO (FA_X1)               0.09       3.45 f
+  stage3/ArithmUnit/add_38/U1_29/CO (FA_X1)               0.09       3.54 f
+  stage3/ArithmUnit/add_38/U1_30/CO (FA_X1)               0.09       3.63 f
+  stage3/ArithmUnit/add_38/U1_31/CO (FA_X1)               0.09       3.72 f
+  stage3/ArithmUnit/add_38/U1_32/CO (FA_X1)               0.09       3.81 f
+  stage3/ArithmUnit/add_38/U1_33/CO (FA_X1)               0.09       3.90 f
+  stage3/ArithmUnit/add_38/U1_34/CO (FA_X1)               0.09       3.99 f
+  stage3/ArithmUnit/add_38/U1_35/CO (FA_X1)               0.09       4.09 f
+  stage3/ArithmUnit/add_38/U1_36/CO (FA_X1)               0.09       4.18 f
+  stage3/ArithmUnit/add_38/U1_37/CO (FA_X1)               0.09       4.27 f
+  stage3/ArithmUnit/add_38/U1_38/CO (FA_X1)               0.09       4.36 f
+  stage3/ArithmUnit/add_38/U1_39/CO (FA_X1)               0.09       4.45 f
+  stage3/ArithmUnit/add_38/U1_40/CO (FA_X1)               0.09       4.54 f
+  stage3/ArithmUnit/add_38/U1_41/CO (FA_X1)               0.09       4.63 f
+  stage3/ArithmUnit/add_38/U1_42/CO (FA_X1)               0.09       4.72 f
+  stage3/ArithmUnit/add_38/U1_43/CO (FA_X1)               0.09       4.81 f
+  stage3/ArithmUnit/add_38/U1_44/CO (FA_X1)               0.09       4.90 f
+  stage3/ArithmUnit/add_38/U1_45/CO (FA_X1)               0.09       4.99 f
+  stage3/ArithmUnit/add_38/U1_46/CO (FA_X1)               0.09       5.08 f
+  stage3/ArithmUnit/add_38/U1_47/CO (FA_X1)               0.09       5.17 f
+  stage3/ArithmUnit/add_38/U1_48/CO (FA_X1)               0.09       5.26 f
+  stage3/ArithmUnit/add_38/U1_49/CO (FA_X1)               0.09       5.35 f
+  stage3/ArithmUnit/add_38/U1_50/CO (FA_X1)               0.09       5.45 f
+  stage3/ArithmUnit/add_38/U1_51/CO (FA_X1)               0.09       5.54 f
+  stage3/ArithmUnit/add_38/U1_52/CO (FA_X1)               0.09       5.63 f
+  stage3/ArithmUnit/add_38/U1_53/CO (FA_X1)               0.09       5.72 f
+  stage3/ArithmUnit/add_38/U1_54/CO (FA_X1)               0.09       5.81 f
+  stage3/ArithmUnit/add_38/U1_55/CO (FA_X1)               0.09       5.90 f
+  stage3/ArithmUnit/add_38/U1_56/CO (FA_X1)               0.09       5.99 f
+  stage3/ArithmUnit/add_38/U1_57/CO (FA_X1)               0.09       6.08 f
+  stage3/ArithmUnit/add_38/U1_58/CO (FA_X1)               0.09       6.17 f
+  stage3/ArithmUnit/add_38/U1_59/CO (FA_X1)               0.09       6.26 f
+  stage3/ArithmUnit/add_38/U1_60/CO (FA_X1)               0.09       6.35 f
+  stage3/ArithmUnit/add_38/U1_61/CO (FA_X1)               0.09       6.44 f
+  stage3/ArithmUnit/add_38/U1_62/CO (FA_X1)               0.09       6.53 f
+  stage3/ArithmUnit/add_38/U1_63/S (FA_X1)                0.11       6.64 f
+  stage3/ArithmUnit/add_38/SUM[63] (ALU_DW01_add_1)       0.00       6.64 f
+  stage3/ArithmUnit/U48/ZN (AOI22_X1)                     0.06       6.69 r
+  stage3/ArithmUnit/U46/ZN (NAND2_X1)                     0.04       6.74 f
+  stage3/ArithmUnit/ALU_result[63] (ALU)                  0.00       6.74 f
+  stage3/fwd_alu_out[63] (RISCV_stage3)                   0.00       6.74 f
+  stage2/fwd_ALU[63] (RISCV_stage2)                       0.00       6.74 f
+  stage2/U32/ZN (AOI22_X1)                                0.06       6.80 r
+  stage2/U31/ZN (INV_X1)                                  0.02       6.82 f
+  stage2/comp/datain1[63] (comparator)                    0.00       6.82 f
+  stage2/comp/U22/Z (XOR2_X1)                             0.07       6.90 f
+  stage2/comp/U9/ZN (NOR4_X1)                             0.09       6.99 r
+  stage2/comp/U5/ZN (NAND4_X1)                            0.05       7.04 f
+  stage2/comp/U1/ZN (NOR4_X1)                             0.10       7.14 r
+  stage2/comp/result (comparator)                         0.00       7.14 r
+  stage2/U163/ZN (OAI21_X1)                               0.03       7.17 f
+  stage2/U162/ZN (INV_X1)                                 0.03       7.20 r
+  stage2/branch_cntr (RISCV_stage2)                       0.00       7.20 r
+  stage3/branch_cntr_in (RISCV_stage3)                    0.00       7.20 r
+  stage3/branch_cntr_out (RISCV_stage3)                   0.00       7.20 r
+  stage1/branch_cntr (RISCV_stage1)                       0.00       7.20 r
+  stage1/PCmux/sel (mux_3)                                0.00       7.20 r
+  stage1/PCmux/U27/Z (BUF_X1)                             0.04       7.24 r
+  stage1/PCmux/U26/Z (BUF_X1)                             0.04       7.28 r
+  stage1/PCmux/U4/Z (BUF_X1)                              0.04       7.32 r
+  stage1/PCmux/U2/ZN (INV_X1)                             0.08       7.40 f
+  stage1/PCmux/U62/ZN (AOI22_X1)                          0.08       7.49 r
+  stage1/PCmux/U61/ZN (INV_X1)                            0.02       7.51 f
+  stage1/PCmux/dataout[20] (mux_3)                        0.00       7.51 f
+  stage1/PCreg/R[20] (regn_N64)                           0.00       7.51 f
+  stage1/PCreg/U47/ZN (NAND2_X1)                          0.03       7.54 r
+  stage1/PCreg/U46/ZN (OAI21_X1)                          0.03       7.57 f
+  stage1/PCreg/Q_reg[20]/D (DFFR_X1)                      0.01       7.57 f
+  data arrival time                                                  7.57
+
+  clock MY_CLK (rise edge)                               10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clock uncertainty                                      -0.07       9.93
+  stage1/PCreg/Q_reg[20]/CK (DFFR_X1)                     0.00       9.93 r
+  library setup time                                     -0.04       9.89
+  data required time                                                 9.89
+  --------------------------------------------------------------------------
+  data required time                                                 9.89
+  data arrival time                                                 -7.57
+  --------------------------------------------------------------------------
+  slack (MET)                                                        2.31
+
+
+1

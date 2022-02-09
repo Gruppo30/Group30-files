@@ -1,0 +1,197 @@
+Loading db file '/software/synopsys/syn_current_64.18/libraries/syn/gtech.db'
+Loading db file '/software/synopsys/syn_current_64.18/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'RISCV'.
+Information: Building the design 'RISCV_stage1'. (HDL-193)
+
+Inferred memory devices in process
+	in routine RISCV_stage1 line 71 in file
+		'../sim/riscv_stage1.vhd'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| hazard_control_out_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  instruction_out_reg   | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  current_addr_out_reg  | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+==================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'RISCV_stage2'. (HDL-193)
+
+Inferred memory devices in process
+	in routine RISCV_stage2 line 159 in file
+		'../sim/riscv_stage2.vhd'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+|      abs_cntr_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       funct3_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+| rd_adrress_out_tmp_reg | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     immediate_reg      | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  instruction_out_reg   | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  current_addr_out_reg  | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sr1_data_reg      | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sr2_data_reg      | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     branch_hdu_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      MemRead_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      MemtoReg_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      MemWrite_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     ALUsrc_in1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     ALUsrc_in2_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    RegWrite_out_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  haz_control_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      ALU_cntr_reg      | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+==================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'RISCV_stage3'. (HDL-193)
+
+Inferred memory devices in process
+	in routine RISCV_stage3 line 113 in file
+		'../sim/riscv_stage3.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| rd_adrress_out_reg  | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   MemRead_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  MemtoReg_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  MemWrite_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  RegWrite_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  tmp_ALU_sync_reg   | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  sr2_data_out_reg   | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'RISCV_stage4'. (HDL-193)
+
+Inferred memory devices in process
+	in routine RISCV_stage4 line 36 in file
+		'../sim/riscv_stage4.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| rd_adrress_out_reg  | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  RegWrite_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  MemtoReg_out_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| ALU_output_out_reg  | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'RISCV_stage5'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'fwd_unit'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'hazard_unit'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'regn' instantiated from design 'RISCV_stage1' with
+	the parameters "N=64". (HDL-193)
+
+Inferred memory devices in process
+	in routine regn_N64 line 17 in file
+		'../sim/regn.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        Q_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'adder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mux'. (HDL-193)
+
+Statistics for case statements in always block at line 17 in file
+	'../sim/mux.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            17            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'regFile' instantiated from design 'RISCV_stage2' with
+	the parameters "k=5,N=64". (HDL-193)
+
+Inferred memory devices in process
+	in routine regFile_k5_N64 line 30 in file
+		'../sim/regFile.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    regArray_reg     | Flip-flop | 2048  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| regFile_k5_N64/70 |   32   |   64    |      5       |
+| regFile_k5_N64/73 |   32   |   64    |      5       |
+=======================================================
+Presto compilation completed successfully.
+Information: Building the design 'ImmediateGenerator'. (HDL-193)
+
+Statistics for case statements in always block at line 19 in file
+	'../sim/ImmediateGenerator.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 25 in file
+	'../sim/decoder.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            27            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'controlALU'. (HDL-193)
+Warning:  ../sim/controlALU.vhd:18: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 16 in file
+	'../sim/controlALU.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            18            |    auto/auto     |
+|            22            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'comparator'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'ALU'. (HDL-193)
+
+Statistics for case statements in always block at line 38 in file
+	'../sim/ALU.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            38            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'absALU'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mux_4to1'. (HDL-193)
+
+Statistics for case statements in always block at line 19 in file
+	'../sim/mux_4to1.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'reg_barrel'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mux32to1'. (HDL-193)
+
+Statistics for case statements in always block at line 46 in file
+	'../sim/mux32to1.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            46            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
