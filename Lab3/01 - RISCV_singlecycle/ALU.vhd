@@ -56,9 +56,7 @@ BEGIN
 				else
 					ALU_zero <= '0';
 				end if;
-			elsif (in_ALU_ctrl = "0010") then
-				ALU_zero <= '1';
-			elsif (in_ALU_ctrl = "0001") then
+			elsif (in_ALU_ctrl = "0001") then   -- JAL
 				ALU_zero <= '1';
 			else
 				ALU_zero <= '0';

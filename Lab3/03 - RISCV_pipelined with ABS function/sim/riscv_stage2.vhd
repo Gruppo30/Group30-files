@@ -65,7 +65,8 @@ architecture arc of RISCV_stage2 is
 	
 	signal sr1_data_tmp : std_logic_vector(63 downto 0);
 	signal sr2_data_tmp : std_logic_vector(63 downto 0);
-	signal comp_in : std_logic_vector(63 downto 0);
+	signal comp_in_A	: std_logic_vector(63 downto 0);
+	signal comp_in_B 	: std_logic_vector(63 downto 0);
 	
 	signal comparator_tmp : std_logic;
 	signal flag 		  : std_logic;
@@ -155,7 +156,7 @@ begin
 	
 	rd_adrress_out <= rd_adrress_out_tmp;
 
-	-- processo per rendere sincrona l'uscita
+	-- process to make the output synchronous 
 	sync : process(clk, current_addr_in, instruction, immediate_tmp,rst) is
 	begin
 		-- set all outputs to zero if the reset is active
@@ -219,12 +220,31 @@ begin
 	
 	branch_flag : process(ALU_cntr_tmp)
 	begin
-			if(ALU_cntr_tmp = "0001") then  -- JAL
+			if (ALU_cntr_tmp = "0001") then  -- JAL
 				flag <= '1';
 			else
 				flag <= '0';		
 			end if;		
 	end process;
+	
+	fwd_comparator_A: process (rd_adrress_out_tmp,instruction,sr1_data_tmp,fwd_ALU) 
+	begin
+		if ((rd_adrress_out_tmp = instruction(19 downto 15))) then
+			comp_in_A <= fwd_ALU;
+		else 
+			comp_in_A <= sr1_data_tmp;
+		end if;
+	end process;
+	
+	fwd_comparator_B: process (rd_adrress_out_tmp,instruction,sr2_data_tmp,fwd_ALU) 
+	begin
+		if ((rd_adrress_out_tmp = instruction(24 downto 20))) then
+			comp_in_B <= fwd_ALU;
+		else 
+			comp_in_B <= sr2_data_tmp;
+		end if;
+	end process;
+	
 	
 	-- port map 
 	registerFile : regFile port map (clk,rst, 
@@ -258,18 +278,8 @@ begin
 									
 
 	Add  : adder 	  port map(current_addr_in, shift_immediate, adder_out);
-	
-	--MuxA : mux   port map(sr1_data_tmp, fwd_ALU, sel_fwd_ALU, comp_in);
-	fwd_comparator: process (rd_adrress_out_tmp,instruction,sr1_data_tmp,fwd_ALU) 
-	begin
-		if ((rd_adrress_out_tmp = instruction(19 downto 15)) OR (rd_adrress_out_tmp = instruction(24 downto 20))) then
-			comp_in <= fwd_ALU;
-		else 
-			comp_in <= sr1_data_tmp;
-		end if;
-	end process;
-	
-	comp : comparator port map(comp_in, sr2_data_tmp, comparator_tmp);
+		
+	comp : comparator port map(comp_in_A, comp_in_B, comparator_tmp);
 
 
 end arc;	

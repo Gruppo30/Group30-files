@@ -64,7 +64,8 @@ architecture arc of RISCV_stage2 is
 	
 	signal sr1_data_tmp : std_logic_vector(63 downto 0);
 	signal sr2_data_tmp : std_logic_vector(63 downto 0);
-	signal comp_in : std_logic_vector(63 downto 0);
+	signal comp_in_A 	: std_logic_vector(63 downto 0);
+	signal comp_in_B	: std_logic_vector(63 downto 0);
 	
 	signal comparator_tmp : std_logic;
 	signal flag 		  : std_logic;
@@ -143,7 +144,7 @@ architecture arc of RISCV_stage2 is
 begin
 
 	-- branch control 
-	-- we decide to jump if this condition is verified (the two operand must be equal or we have to do an inconditional jump, and the instruction was a beq)
+	-- we decide to jump if this condition is verified (we have to do an inconditional jump, or the instruction was a beq and the two operands are be equal)
 	branch_cntr_tmp <= branch_tmp AND (comparator_tmp OR flag);
 	
 	branch_cntr <= branch_cntr_tmp;
@@ -227,6 +228,29 @@ begin
 			end if;		
 	end process;
 	
+	
+	-- in this processes we compare the rd address with rs1 and rs2 of the current instruction; if rd = rs1 or rd = rs2 we need to forward the result
+	-- coming from the ALU to the input of the comparator; if this is not the case, we must use the data coming from the register file
+	-- i.e. sr1_data_tmp and sr2_data_tmp, in order see if they are equal 	
+	fwd_comparator_A: process (rd_adrress_out_tmp,instruction,sr1_data_tmp,fwd_ALU) 
+	begin
+		if ((rd_adrress_out_tmp = instruction(19 downto 15))) then
+			comp_in_A <= fwd_ALU;
+		else 
+			comp_in_A <= sr1_data_tmp;
+		end if;
+	end process;
+	
+	fwd_comparator_B: process (rd_adrress_out_tmp,instruction,sr2_data_tmp,fwd_ALU) 
+	begin
+		if ((rd_adrress_out_tmp = instruction(24 downto 20))) then
+			comp_in_B <= fwd_ALU;
+		else 
+			comp_in_B <= sr2_data_tmp;
+		end if;
+	end process;
+
+
 	-- port map 
 	registerFile : regFile port map (clk,rst, 
 									 unsigned(instruction(19 downto 15)), 
@@ -258,24 +282,11 @@ begin
 									
 
 	Add  : adder 	  port map(current_addr_in, shift_immediate, adder_out);
-	
-	
-	-- in this process we compare the rd address with rs1 and rs2 of the current instruction; if rd = rs1 or rd = rs2 we need to forward the result
-	-- coming from the ALU to the input of the comparator; if this is not the case, we must compare the two operand coming from the register file
-	-- i.e. sr1_data_tmp and sr2_data_tmp in order see if they are equal 
-	
-	fwd_comparator: process (rd_adrress_out_tmp,instruction,sr1_data_tmp,fwd_ALU) 
-	begin
-		if ((rd_adrress_out_tmp = instruction(19 downto 15)) OR (rd_adrress_out_tmp = instruction(24 downto 20))) then
-			comp_in <= fwd_ALU;
-		else 
-			comp_in <= sr1_data_tmp;
-		end if;
-	end process;
+		
 	
 	-- the comparator gives us the result of the comparation; this result is useful in order to decide if a jump has to be performed or not (also 
 	-- depending on the value of the flag and branch_tmp
-	comp : comparator port map(comp_in, sr2_data_tmp, comparator_tmp);
+	comp : comparator port map(comp_in_A, comp_in_B, comparator_tmp);
 
 
 end arc;	
